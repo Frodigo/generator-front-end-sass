@@ -1,0 +1,108 @@
+@charset 'UTF-8';
+
+
+/// breakpoint
+/// this mixin needs to be used to enter a @media that will let use use cross-media placeholders
+/// ex:
+
+
+
+@mixin breakpoint($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+  @if $value != null {
+    $current-breakpoint: $breakpoint !global;
+    @media (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "Invalid breakpoint `#{$breakpoint}`.";
+  }
+}
+
+/// @name clearfix
+/// @author marcink
+/// clearfix float elements
+
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+
+
+/// @name form-placeholder
+/// @author marcink
+/// @param {string} $color - placeholder color
+/// @param {number} $opacity  [1.0]  - placeholder opacity
+
+@mixin form-placeholder($color, $opacity: 1) {
+  &::-webkit-input-placeholder {
+    color: $color;
+    opacity: $opacity;
+  }
+
+  &:-moz-placeholder {
+    color: $color;
+    opacity: $opacity;
+  }
+
+  &::-moz-placeholder {
+    color: $color;
+    opacity: $opacity;
+  }
+
+  &:-ms-input-placeholder {
+    color: $color;
+    opacity: $opacity;
+  }
+}
+
+/// @name Retina
+
+
+@mixin retina() {
+  @media (min--moz-device-pixel-ratio: 1.5),
+  (-o-min-device-pixel-ratio: 3/2),
+  (-webkit-min-device-pixel-ratio: 1.5),
+  (min-device-pixel-ratio: 1.5),
+  (min-resolution: 1.5dppx) {
+    @content;
+  }
+}
+
+
+/// @name rem
+/// @author marcink
+/// @param {string} $property - property
+/// @param {string} $px-values- px value
+/// Convert px to rem
+
+
+@mixin rem($property, $px-values) {
+  $baseline-rem: $baseline-px / 1rem;
+  @if type-of($px-values) == 'number' {
+    #{$property}: $px-values / $baseline-rem;
+  } @else {
+    $rem-values: unquote('');
+    @each $value in $px-values {
+      @if $value == 0 {
+        $rem-values: append($rem-values, $value);
+      } @else if $value == 'auto' {
+        $remvalues: append($remvalues, $value);
+      } @else if $value == '!important' {
+        $remvalues: append($remvalues, $value);
+      } @else {
+        $rem-values: append($rem-values, $value / $baseline-rem);
+      }
+    }
+    #{$property}: $rem-values;
+  }
+}
