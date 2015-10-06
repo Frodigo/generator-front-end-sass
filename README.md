@@ -1,3 +1,5 @@
+# front-end-generator
+
 # generator-front-end-sass [![Build Status](https://secure.travis-ci.org/Frodigo/generator-front-end-sass.png?branch=master)](https://travis-ci.org/Frodigo/generator-front-end-sass)
 
 > [Yeoman](http://yeoman.io) generator
@@ -45,3 +47,4 @@ If you'd like to get to know Yeoman better and meet some of his friends, [Grunt]
 ## License
 
 MIT
+
