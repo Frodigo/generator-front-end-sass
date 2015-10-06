@@ -1,13 +1,13 @@
 {
   "name": "generator-front-end-sass",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "Frodigo/generator-front-end-sass",
+  "repository": "Frodigo/front-end-generator",
   "author": {
     "name": "Marcin Kwiatkowski",
-    "email": "",
+    "email": "kwiatkowski939@gmail.com",
     "url": "https://github.com/Frodigo"
   },
   "scripts": {
