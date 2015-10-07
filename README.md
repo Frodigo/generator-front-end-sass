@@ -1,8 +1,21 @@
 # front-end-generator
 
-# generator-front-end-sass [![Build Status](https://secure.travis-ci.org/Frodigo/generator-front-end-sass.png?branch=master)](https://travis-ci.org/Frodigo/generator-front-end-sass)
+# generator-front-end-sass 
 
 > [Yeoman](http://yeoman.io) generator
+
+## Features
+
+* Local Server (BrowserSync)
+* Sass support (libsass)
+* CSS Autoprefixing
+* LiveReload
+* Lint your scss (scss lint)
+* Lint your scripts (jshint)
+* Lint your html
+* Automagically wire up your Bower components with [grunt-wiredep](#third-party-dependencies).
+* Creating documentation (jsdoc & sassdoc)
+
 
 
 ## Getting Started
@@ -36,6 +49,8 @@ Finally, initiate the generator:
 ```bash
 yo front-end-sass
 ```
+
+Run `grunt` for building and `grunt serve` for preview and development
 
 ### Getting To Know Yeoman
 

@@ -1,3 +1,5 @@
+// Generated  using Front-End-Sass Generator https://github.com/Frodigo/front-end-generator
+
 'use strict';
 
 var path = require('path');
