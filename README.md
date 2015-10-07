@@ -1,5 +1,3 @@
-# front-end-generator
-
 # generator-front-end-sass 
 
 > [Yeoman](http://yeoman.io) generator
