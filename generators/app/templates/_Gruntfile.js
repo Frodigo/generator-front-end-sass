@@ -186,12 +186,31 @@ module.exports = function(grunt) {
     },
 
 
+    // sprites generation tasks
+
+    sprite:{
+      all: {
+        src: 'development/images/sprites/*.png',
+        dest: 'development/images/sprites.png',
+        destCss: 'development/sass/specifics/_sprites.scss'
+      }
+    },
+
+
     // watch task
 
     watch: {
       styles: {
         files: ['development/**/*.{scss,sass}'],
         tasks: ['sass','postcss'],
+        options: {
+          spawn: false
+        }
+      },
+
+      sprites: {
+        files: ['development/images/sprites/*.png'],
+        tasks: ['sprite'],
         options: {
           spawn: false
         }
@@ -222,6 +241,8 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'clean',
     'sass',
+    'imagemin',
+    'sprite',
     'copyto',
     'test',
     'docs'
