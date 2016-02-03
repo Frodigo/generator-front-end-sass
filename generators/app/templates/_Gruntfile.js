@@ -183,6 +183,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('serve', [
+    'wiredep',
     'browserSync',
     'sass',
     'watch'
