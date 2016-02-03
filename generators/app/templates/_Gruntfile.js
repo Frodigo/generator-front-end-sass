@@ -167,6 +167,24 @@ module.exports = function(grunt) {
       }
     },
 
+    // imagemin tasks
+
+    imagemin: {
+      dynamic: {
+        options: {
+          optimizationLevel: 5,
+          svgoPlugins: [{ removeViewBox: false }]
+        },
+
+        files: [{
+          expand: true,
+          cwd: 'development/',
+          src: ['**/*.{png,jpg,gif}'],
+          dest: 'development/'
+        }]
+      }
+    },
+
 
     // watch task
 
