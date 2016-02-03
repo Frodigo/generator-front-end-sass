@@ -4,6 +4,14 @@ var chalk = require('chalk');
 var yosay = require('yosay');
 
 module.exports = yeoman.generators.Base.extend({
+  init: function () {
+    this.on('end', function () {
+      if (!this.options['skip-install']) {
+        this.log(chalk.green('All is done! Thank you for using Frodigo Front-End-Sass  generator!'));
+      }
+
+    });
+  },
   prompting: function () {
     var done = this.async();
 
