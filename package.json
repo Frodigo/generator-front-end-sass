@@ -1,6 +1,6 @@
 {
   "name": "generator-front-end-sass",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Yeoman generator for Front End Apps",
   "license": "MIT",
   "main": "app/index.js",
