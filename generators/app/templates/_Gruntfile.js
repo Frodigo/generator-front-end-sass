@@ -157,7 +157,9 @@ module.exports = function(grunt) {
           '**/.git/**',
           '**/*.{scss,sass}',
           'development/sass',
-          'development/sass/**'
+          'development/sass/**',
+          'development/docs',
+          'development/docs/**'
         ]
       },
       default: {
