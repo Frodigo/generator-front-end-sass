@@ -3,14 +3,12 @@
 
 /// breakpoint
 /// this mixin needs to be used to enter a @media that will let use use cross-media placeholders
-/// ex:
-
-
 
 @mixin breakpoint($breakpoint) {
   $value: map-get($breakpoints, $breakpoint);
   @if $value != null {
     $current-breakpoint: $breakpoint !global;
+
     @media (min-width: $value) {
       @content;
     }
@@ -20,52 +18,26 @@
 }
 
 /// @name clearfix
-/// @author marcink
+/// @author Marcin Kwiatkowski kontakt@marcin-kwiatkowski.com
 /// clearfix float elements
 
 
 @mixin clearfix {
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     content: '';
     display: table;
   }
 
-  &:after {
+  &::after {
     clear: both;
   }
 }
 
 
 
-/// @name form-placeholder
-/// @author marcink
-/// @param {string} $color - placeholder color
-/// @param {number} $opacity  [1.0]  - placeholder opacity
-
-@mixin form-placeholder($color, $opacity: 1) {
-  &::-webkit-input-placeholder {
-    color: $color;
-    opacity: $opacity;
-  }
-
-  &:-moz-placeholder {
-    color: $color;
-    opacity: $opacity;
-  }
-
-  &::-moz-placeholder {
-    color: $color;
-    opacity: $opacity;
-  }
-
-  &:-ms-input-placeholder {
-    color: $color;
-    opacity: $opacity;
-  }
-}
-
 /// @name Retina
+/// @author Marcin Kwiatkowski kontakt@marcin-kwiatkowski.com
 
 
 @mixin retina() {
@@ -80,7 +52,7 @@
 
 
 /// @name rem
-/// @author marcink
+/// @author Marcin Kwiatkowski kontakt@marcin-kwiatkowski.com
 /// @param {string} $property - property
 /// @param {string} $px-values- px value
 /// Convert px to rem
