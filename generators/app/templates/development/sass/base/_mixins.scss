@@ -1,80 +1,31 @@
 @charset 'UTF-8';
 
-
 /// breakpoint
 /// this mixin needs to be used to enter a @media that will let use use cross-media placeholders
 
 @mixin breakpoint($breakpoint) {
-  $value: map-get($breakpoints, $breakpoint);
-  @if $value != null {
-    $current-breakpoint: $breakpoint !global;
+    $value: map-get($breakpoints, $breakpoint);
+    @if $value != null {
+        $current-breakpoint: $breakpoint !global;
 
-    @media (min-width: $value) {
-      @content;
+        @media (min-width: $value) {
+            @content;
+        }
     }
-  } @else {
-    @warn "Invalid breakpoint `#{$breakpoint}`.";
-  }
 }
 
 /// @name clearfix
 /// @author Marcin Kwiatkowski kontakt@marcin-kwiatkowski.com
 /// clearfix float elements
 
-
 @mixin clearfix {
-  &::before,
-  &::after {
-    content: '';
-    display: table;
-  }
-
-  &::after {
-    clear: both;
-  }
-}
-
-
-
-/// @name Retina
-/// @author Marcin Kwiatkowski kontakt@marcin-kwiatkowski.com
-
-
-@mixin retina() {
-  @media (min--moz-device-pixel-ratio: 1.5),
-  (-o-min-device-pixel-ratio: 3/2),
-  (-webkit-min-device-pixel-ratio: 1.5),
-  (min-device-pixel-ratio: 1.5),
-  (min-resolution: 1.5dppx) {
-    @content;
-  }
-}
-
-
-/// @name rem
-/// @author Marcin Kwiatkowski kontakt@marcin-kwiatkowski.com
-/// @param {string} $property - property
-/// @param {string} $px-values- px value
-/// Convert px to rem
-
-
-@mixin rem($property, $px-values) {
-  $baseline-rem: $baseline-px / 1rem;
-  @if type-of($px-values) == 'number' {
-    #{$property}: $px-values / $baseline-rem;
-  } @else {
-    $rem-values: unquote('');
-    @each $value in $px-values {
-      @if $value == 0 {
-        $rem-values: append($rem-values, $value);
-      } @else if $value == 'auto' {
-        $remvalues: append($remvalues, $value);
-      } @else if $value == '!important' {
-        $remvalues: append($remvalues, $value);
-      } @else {
-        $rem-values: append($rem-values, $value / $baseline-rem);
-      }
+    &::before,
+    &::after {
+        content: '';
+        display: table;
     }
-    #{$property}: $rem-values;
-  }
+
+    &::after {
+        clear: both;
+    }
 }
