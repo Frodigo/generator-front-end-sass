@@ -4,7 +4,7 @@
 
 var path = require('path');
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
     // browser sync task
     browserSync: {
       bsFiles: {
-        src : ['development/**/*.{html,css,jpg,png,svg,js}']
+        src: ['development/**/*.{html,css,jpg,png,svg,js}']
       },
       options: {
         watchTask: true,
@@ -64,18 +64,14 @@ module.exports = function(grunt) {
       }
     },
 
-    // scss lint
+    // sass lint
 
-    scsslint: {
-      allFiles: [
-        'development/sass/**/*.scss'
-      ],
+
+    sasslint: {
       options: {
-        //bundleExec: true,
-        reporterOutput: 'tests/scss/scss-lint-report.xml',
-        colorizeOutput: true,
-        force: true
-      }
+        configFile: '.sass-lint.yml'
+      },
+      target: ['development/sass/**/*.scss']
     },
 
     // sass doc
@@ -91,8 +87,8 @@ module.exports = function(grunt) {
 
     // js doc
 
-    jsdoc : {
-      dist : {
+    jsdoc: {
+      dist: {
         src: ['development/js/*.js', 'development/test/*.js'],
         options: {
           destination: 'development/docs/js'
@@ -100,18 +96,6 @@ module.exports = function(grunt) {
       }
     },
 
-
-    // wiredep task
-
-    wiredep: {
-      task: {
-        src: [
-          'development/**/*.html',
-          'development/sass/styles.scss'
-        ]
-
-      }
-    },
 
     // jshint task
     jshint: {
@@ -128,8 +112,11 @@ module.exports = function(grunt) {
 
     // html lint task
 
-    htmllint: {
-      all: ['development/**/*.html', '!development/vendor/**/*.html', '!development/docs/**/*.html']
+    validation: {
+      all: {
+        src: ['development/**/*.html', '!development/vendor/**/*.html', '!development/docs/**/*.html']
+      }
+
     },
 
     // clean task
@@ -175,7 +162,7 @@ module.exports = function(grunt) {
       dynamic: {
         options: {
           optimizationLevel: 5,
-          svgoPlugins: [{ removeViewBox: false }]
+          svgoPlugins: [{removeViewBox: false}]
         },
 
         files: [{
@@ -190,7 +177,7 @@ module.exports = function(grunt) {
 
     // sprites generation tasks
 
-    sprite:{
+    sprite: {
       all: {
         src: 'development/images/sprites/*.png',
         dest: 'development/images/sprites.png',
@@ -204,7 +191,7 @@ module.exports = function(grunt) {
     watch: {
       styles: {
         files: ['development/**/*.{scss,sass}'],
-        tasks: ['sass','postcss'],
+        tasks: ['sass', 'postcss'],
         options: {
           spawn: false
         }
@@ -222,7 +209,6 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('serve', [
-    'wiredep',
     'browserSync',
     'sass',
     'watch'
@@ -230,8 +216,8 @@ module.exports = function(grunt) {
 
 
   grunt.registerTask('test', [
-    'htmllint',
-    'scsslint',
+    'validation',
+    'sasslint',
     'jshint'
   ]);
 

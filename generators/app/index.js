@@ -37,12 +37,12 @@ module.exports = yeoman.generators.Base.extend({
         this.destinationPath('package.json')
       );
       this.fs.copy(
-        this.templatePath('_bower.json'),
-        this.destinationPath('bower.json')
+        this.templatePath('sass-lint.yml'),
+        this.destinationPath('.sass-lint.yml')
       );
       this.fs.copy(
-        this.templatePath('bowerrc'),
-        this.destinationPath('.bowerrc')
+        this.templatePath('_bitbucket-pipelines.yml'),
+        this.destinationPath('bitbucket-pipelines.yml')
       );
       this.fs.copy(
         this.templatePath('gitignore'),
@@ -70,6 +70,8 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   install: function () {
-    this.installDependencies();
+    this.installDependencies({
+      bower: false
+    });
   }
 });

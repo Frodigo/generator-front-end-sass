@@ -8,10 +8,9 @@
 * Sass support (libsass)
 * CSS Autoprefixing
 * LiveReload
-* Lint your scss (scss lint)
+* Lint your scss (sass lint)
 * Lint your scripts (jshint)
 * Lint your html
-* Automagically wire up your Bower components with [grunt-wiredep](#third-party-dependencies).
 * Creating documentation (jsdoc & sassdoc)
 
 
